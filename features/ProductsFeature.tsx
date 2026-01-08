@@ -62,14 +62,14 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       href={product.playStore} 
                       target="_blank" 
                       rel="noopener" 
-                      className="group/btn px-10 py-6 bg-gradient-to-br from-gray-900 via-gray-900 to-black text-white border border-white/10 rounded-[2rem] font-bold flex items-center gap-6 hover:shadow-2xl hover:shadow-blue-600/20 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
+                      className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
-                      <div className="p-3 bg-white/5 rounded-xl group-hover/btn:bg-blue-600/20 transition-colors">
-                        <Download size={28} className="text-blue-400 group-hover/btn:scale-110 transition-transform" />
+                      <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-blue-600 transition-all duration-500 group-hover/btn:rotate-[360deg]">
+                        <Download size={26} className="text-white group-hover/btn:scale-110 transition-transform" />
                       </div>
                       <div className="text-left leading-tight">
-                        <p className="text-[10px] uppercase opacity-40 font-black tracking-[0.2em] mb-1">Disponível no</p>
-                        <p className="text-xl font-black tracking-tight">Google Play</p>
+                        <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">Disponível no</p>
+                        <p className="text-lg font-black tracking-tight whitespace-nowrap">Google Play</p>
                       </div>
                     </a>
                   )}
@@ -79,14 +79,14 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       href={product.appStore} 
                       target="_blank" 
                       rel="noopener" 
-                      className="group/btn px-10 py-6 bg-gradient-to-br from-gray-900 via-gray-900 to-black text-white border border-white/10 rounded-[2rem] font-bold flex items-center gap-6 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
+                      className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
-                      <div className="p-3 bg-white/5 rounded-xl group-hover/btn:bg-blue-400/20 transition-colors">
-                        <Download size={28} className="text-blue-400 group-hover/btn:scale-110 transition-transform" />
+                      <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-blue-500 transition-all duration-500 group-hover/btn:rotate-[360deg]">
+                        <Download size={26} className="text-white group-hover/btn:scale-110 transition-transform" />
                       </div>
                       <div className="text-left leading-tight">
-                        <p className="text-[10px] uppercase opacity-40 font-black tracking-[0.2em] mb-1">Disponível na</p>
-                        <p className="text-xl font-black tracking-tight">App Store</p>
+                        <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">Disponível na</p>
+                        <p className="text-lg font-black tracking-tight whitespace-nowrap">App Store</p>
                       </div>
                     </a>
                   )}
@@ -96,14 +96,14 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       href={product.coCreatorLink} 
                       target="_blank" 
                       rel="noopener" 
-                      className="group/btn px-10 py-6 bg-gradient-to-br from-white to-gray-50 border-2 border-gray-900 text-gray-900 rounded-[2rem] font-bold flex items-center gap-6 hover:bg-white hover:shadow-2xl hover:shadow-gray-200 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-sm"
+                      className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-gray-900/40 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
-                      <div className="p-3 bg-gray-100 rounded-xl group-hover/btn:bg-blue-50 transition-colors">
-                        <ExternalLink size={28} className="text-blue-600 group-hover/btn:scale-110 transition-transform" />
+                      <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-gray-600 transition-all duration-500 group-hover/btn:rotate-[360deg]">
+                        <ExternalLink size={26} className="text-white group-hover/btn:scale-110 transition-transform" />
                       </div>
                       <div className="text-left leading-tight">
-                        <p className="text-[10px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">Estúdio Co-criador</p>
-                        <p className="text-xl font-black tracking-tight">Inative Studio</p>
+                        <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">Estúdio <br/> Co-Fundador</p>
+                        <p className="text-lg font-black tracking-tight whitespace-nowrap">Inative Studio</p>
                       </div>
                     </a>
                   )}

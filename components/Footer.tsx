@@ -2,6 +2,7 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { Page } from '../types';
+import { ASSETS } from '../assets/index';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -42,7 +43,7 @@ export const Footer = ({ onNavigate }: FooterProps) => {
         {/* Bottom Branding & Links */}
         <div className="mt-40 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all cursor-default">
-              <img src="assets/layout/logo/logo.png" alt="Criando Logo" className="h-6 w-auto" />
+              <img src={ASSETS.layout.logo} alt="Criando Logo" className="h-6 w-auto" />
               <span className="text-xs font-black tracking-tighter">CRIANDO ENTERPRISE</span>
            </div>
            

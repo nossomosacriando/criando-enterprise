@@ -2,7 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ContactForm } from '../components/ContactForm';
-import { Mail, Globe } from 'lucide-react';
+import { Mail, Globe, Users } from 'lucide-react';
+import { ASSETS } from '../assets/index';
 
 export const AboutFeature = () => {
   return (
@@ -10,7 +11,7 @@ export const AboutFeature = () => {
       <section className="relative py-40 bg-white min-h-screen overflow-hidden" aria-labelledby="about-title">
         {/* Background Decorativo sutil */}
         <div className="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
-          <img src="assets/layout/backgrounds/about-bg.png" alt="" className="w-full h-full object-cover grayscale" />
+          <img src={ASSETS.layout.backgrounds.about} alt="" className="w-full h-full object-cover grayscale" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -21,11 +22,14 @@ export const AboutFeature = () => {
               className="w-full lg:w-1/2 relative group"
             >
               <div className="absolute -inset-6 bg-blue-100 rounded-[4rem] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-              <img 
-                src="assets/layout/presentation/hero-image.png" 
-                alt="Carlos Santana e Willian Gonçalves - Criando Enterprise" 
-                className="relative z-10 w-full rounded-[3.5rem] shadow-2xl border-8 border-white object-cover" 
-              />
+              {/* Placeholder elegante para substituir o hero ausente */}
+              <div className="relative z-10 w-full aspect-[4/3] rounded-[3.5rem] shadow-2xl border-8 border-white bg-gray-50 flex items-center justify-center overflow-hidden">
+                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent"></div>
+                 <div className="relative flex flex-col items-center gap-4 text-blue-600/30">
+                    <Users size={120} strokeWidth={1} className="animate-pulse" />
+                    <p className="text-[10px] font-black uppercase tracking-[0.5em]">Criando Team</p>
+                 </div>
+              </div>
             </motion.div>
             
             <motion.div 
@@ -67,7 +71,6 @@ export const AboutFeature = () => {
         </div>
       </section>
 
-      {/* NEW CONTACT SECTION IN ABOUT PAGE */}
       <section className="py-32 bg-gray-50 border-y border-gray-100">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
