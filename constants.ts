@@ -24,7 +24,7 @@ export const PRODUCTS: Product[] = [
     images: ASSETS.products.harvestWords,
     appStore: 'https://apps.apple.com/br/app/harvest-words-ingl%C3%AAs-jogando/id6755827485',
     playStore: 'https://play.google.com/store/apps/details?id=com.nomerge.englishappgame',
-    coCreatorLink: 'https://inativestudio.com/policies.html',
+    coCreatorLink: 'https://inativestudio.com',
     policyPage: 'politica-harvest'
   }
 ];
