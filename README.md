@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# Criando Enterprise 🚀
+**Building for the New Era | High-End Software Engineering**
 
-This contains everything you need to run your app locally.
+A **Criando Enterprise** é uma Software House brasileira de alto padrão, focada em arquitetar ecossistemas digitais que transcendem dispositivos. Unimos engenharia de precisão, design minimalista e performance escalável para transformar visões complexas em soluções de alto impacto.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1SZTrACXHtqUPmLrn8akAIchHZKpipCgP
+## 💎 Sobre a Empresa
+Fundada em 2022 pela sinergia estratégica entre **Carlos Santana** e **Willian Gonçalves**, a Criando nasceu com o propósito de que o software não deve ser apenas uma entrega técnica, mas um ato de dar forma a estratégias de negócio.
 
-## Run Locally
+### Nossa Metodologia
+1.  **Discovery**: Análise profunda de mercado e requisitos técnicos.
+2.  **Design**: UX/UI centrada no usuário com prototipagem de alta fidelidade.
+3.  **Engineering**: Desenvolvimento ágil com foco em código limpo (Clean Code).
+4.  **Deployment**: Lançamento estratégico e monitoramento contínuo.
 
-**Prerequisites:**  Node.js
+---
 
+## 📱 Portfólio de Produtos
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 📖 O Leitor
+*O agregador definitivo para fãs de histórias.*
+O Leitor resolve o problema das "mil abas abertas" para leitores de mangás, novels e quadrinhos. Ele agrupa links e otimiza a experiência de leitura em uma interface fluida e organizada.
+- **Plataformas**: Android (Google Play).
+
+### 🌾 Harvest Words: Inglês Jogando
+*Educação gamificada em um mundo imersivo.*
+Um jogo de simulação de fazenda onde o jogador assume o papel de um morador de Bloom Town. O objetivo é reconstruir uma fazenda herdada enquanto aprende inglês através de mecânicas de conversação e reconhecimento de voz.
+- **Plataformas**: iOS (App Store) e Android (Google Play).
+- **Parceria**: Co-produzido com Inative Studio.
+
+---
+
+## 🛠 Tech Stack (O que dominamos)
+Nossa stack é selecionada para garantir baixa latência e máxima escalabilidade:
+
+- **Frontend & Web**: React, Next.js, Tailwind CSS, Framer Motion.
+- **Mobile**: Flutter, React Native (Android & iOS).
+- **Desktop**: Electron (Windows, macOS, Linux).
+- **Backend & Infra**: Node.js, Rust, AWS (Amazon Web Services).
+
+---
+
+## 📞 Contato & Consultoria
+Estamos prontos para analisar seu desafio técnico e transformá-lo em realidade.
+
+- **E-mail**: [nossomosacriando@gmail.com](mailto:nossomosacriando@gmail.com)
+- **Website**: [criandoenterprise.com.br](https://criandoenterprise.com.br)
+
+---
+*© 2025 Criando Enterprise. Todos os direitos reservados. Unindo mente, coração e tecnologia.*
