@@ -88,7 +88,6 @@ export const HomeFeature = ({ onNavigate, onOpenContact }: HomeFeatureProps) => 
       <section className="py-48 bg-white text-black" aria-labelledby="tech-title">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mb-32">
-            <p className="text-blue-600 font-black uppercase tracking-[0.4em] text-[11px] mb-6">Omnichannel Strategy</p>
             <h2 id="tech-title" className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-gray-900 mb-10">
               Engenharia sem <br/> 
               <span className="text-blue-600">Fronteiras Digitais.</span>
