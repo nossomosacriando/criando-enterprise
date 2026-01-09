@@ -1,26 +1,37 @@
 /**
- * Gestão Centralizada de Assets
- * Caminhos de string puros para garantir compatibilidade com o carregamento estático do navegador.
- * Os caminhos são relativos à raiz do projeto.
+ * Gestão de Assets via Cloudinary (Links Externos)
+ * Isso elimina os erros de "Module not found" no ambiente do AI Studio.
  */
+
+const CLOUD_NAME = 'dbd2ydqcy';
+const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
 export const ASSETS = {
   layout: {
-    logo: 'assets/layout/logo/logo.png',
+    logo: `${BASE_URL}/v1/logo-criando_id.png`,
     backgrounds: {
-      about: 'assets/layout/backgrounds/about.png',
-      home: 'assets/layout/backgrounds/home.png',
+      about: `${BASE_URL}/v1/about_id.png`,
+      home: `${BASE_URL}/v1/home_id.png`,
     },
   },
   products: {
-    oLeitor: ['assets/products/o-leitor/leitor-1.png'],
+    oLeitor: [
+      `${BASE_URL}/v1/o-leitor-1_id.png`,
+      `${BASE_URL}/v1/o-leitor-2_id.png`,
+      `${BASE_URL}/v1/o-leitor-3_id.png`,
+      `${BASE_URL}/v1/o-leitor-4_id.png`,
+      `${BASE_URL}/v1/o-leitor-5_id.png`,
+      `${BASE_URL}/v1/o-leitor-6_id.png`,
+
+    ],
     harvestWords: [
-      'assets/products/harvest-words/harvest-1.png',
-      'assets/products/harvest-words/harvest-2.png',
-      'assets/products/harvest-words/harvest-3.png',
-      'assets/products/harvest-words/harvest-4.png',
-      'assets/products/harvest-words/harvest-5.png',
-      'assets/products/harvest-words/harvest-6.png',
-      'assets/products/harvest-words/harvest-7.png',
+      `${BASE_URL}/v1/harvest-1_id.png`,
+      `${BASE_URL}/v1/harvest-2_id.png`,
+      `${BASE_URL}/v1/harvest-3_id.png`,
+      `${BASE_URL}/v1/harvest-4_id.png`,
+      `${BASE_URL}/v1/harvest-5_id.png`,
+      `${BASE_URL}/v1/harvest-6_id.png`,
+      `${BASE_URL}/v1/harvest-7_id.png`,
     ],
   },
 };

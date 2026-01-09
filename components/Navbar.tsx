@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Page } from '../types';
 import { NAV_ITEMS } from '../constants';
@@ -13,6 +13,7 @@ interface NavbarProps {
 
 export const Navbar = ({ activePage, onNavigate }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   return (
     <nav className="fixed w-full z-50 bg-[#0a0a0a] shadow-2xl py-4 border-b border-white/5">
@@ -21,13 +22,18 @@ export const Navbar = ({ activePage, onNavigate }: NavbarProps) => {
           className="flex items-center gap-3 cursor-pointer group" 
           onClick={() => onNavigate('home')}
         >
-          {/* Logo Container with Gradient Overlay */}
-          <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl">
-            <img 
-              src={ASSETS.layout.logo} 
-              alt="Criando Logo" 
-              className="h-full w-auto transition-transform group-hover:scale-110 relative z-10" 
-            />
+          {/* Logo Container with Fallback */}
+          <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl bg-blue-600/10 border border-white/10">
+            {!logoError ? (
+              <img 
+                src={ASSETS.layout.logo} 
+                alt="Criando Logo" 
+                onError={() => setLogoError(true)}
+                className="h-full w-auto transition-transform group-hover:scale-110 relative z-10 object-contain p-1" 
+              />
+            ) : (
+              <Cpu size={20} className="text-blue-500 relative z-10" />
+            )}
             
             {/* Dynamic Gradient Overlay */}
             <motion.div 
@@ -42,9 +48,6 @@ export const Navbar = ({ activePage, onNavigate }: NavbarProps) => {
               style={{ backgroundSize: '200% 200%' }}
               className="absolute inset-0 bg-gradient-to-tr from-blue-600/40 via-transparent to-blue-400/30 mix-blend-overlay z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             />
-            
-            {/* Subtle Constant Sheen */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none z-[15]" />
           </div>
 
           <div className="flex flex-col leading-none">

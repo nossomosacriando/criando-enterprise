@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Loader2, ImageOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface CarouselProps {
@@ -10,112 +10,122 @@ interface CarouselProps {
 export const Carousel = ({ images }: CarouselProps) => {
   const [current, setCurrent] = useState(0);
   const [isLoaded, setIsLoaded] = useState<{ [key: number]: boolean }>({});
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [hasError, setHasError] = useState<{ [key: number]: boolean }>({});
 
-  const next = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
-  };
-  
-  const prev = () => {
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  };
+  // Transição automática a cada 10 segundos
+  useEffect(() => {
+    if (images.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const handleImageLoad = (index: number) => {
     setIsLoaded((prev) => ({ ...prev, [index]: true }));
   };
 
-  // Verifica se a imagem já está no cache ao mudar de slide
-  useEffect(() => {
-    if (imgRef.current?.complete) {
-      handleImageLoad(current);
-    }
-  }, [current]);
+  const handleImageError = (index: number) => {
+    setHasError((prev) => ({ ...prev, [index]: true }));
+    setIsLoaded((prev) => ({ ...prev, [index]: true })); 
+  };
+
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   if (images.length === 0) return null;
 
   return (
-    <div className="relative group overflow-hidden rounded-[2.5rem] shadow-2xl bg-gray-100 aspect-[4/3] ring-1 ring-black/5">
-      {/* Loading Skeleton - z-0 para ficar atrás da imagem carregada */}
+    <div className="relative group overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] bg-zinc-900 aspect-[9/14] md:aspect-[9/16] w-full max-w-[420px] mx-auto flex items-center justify-center transition-all duration-500 shadow-2xl ring-1 ring-white/10">
+      
+      {/* Atmosfera de Fundo (Glow baseado na imagem atual) */}
+      <div className="absolute inset-0 z-0 opacity-40 blur-[80px] scale-150 pointer-events-none transition-opacity duration-1000">
+        <img src={images[current]} alt="" className="w-full h-full object-cover" />
+      </div>
+
+      {/* Loader */}
       <AnimatePresence>
         {!isLoaded[current] && (
           <motion.div 
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 flex items-center justify-center bg-gray-50 z-0"
+            className="absolute inset-0 flex items-center justify-center z-20 bg-zinc-950/40 backdrop-blur-md"
           >
-            <div className="flex flex-col items-center gap-4">
-              <Loader2 className="animate-spin text-blue-600/30" size={32} />
-              <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ x: '-100%' }}
-                  animate={{ x: '100%' }}
-                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                  className="w-full h-full bg-blue-600/20"
-                />
-              </div>
-            </div>
+            <Loader2 className="animate-spin text-blue-500" size={32} />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Imagem com z-10 para sobrepor o skeleton */}
-      <AnimatePresence mode="wait">
-        <motion.img
-          ref={imgRef}
-          key={current}
-          src={images[current]}
-          onLoad={() => handleImageLoad(current)}
-          onError={(e) => {
-            // Fallback para garantir que algo seja exibido se o link falhar
-            const target = e.target as HTMLImageElement;
-            if (!target.src.includes('placeholder')) {
-              target.src = `https://via.placeholder.com/800x600/f3f4f6/3b82f6?text=Imagem+Indisponível`;
-              handleImageLoad(current);
-            }
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: isLoaded[current] ? 1 : 0, 
-            scale: 1 
-          }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="relative z-10 w-full h-full object-cover select-none"
-          alt={`Visualização do produto ${current + 1}`}
-          loading="eager"
-          decoding="async"
-        />
-      </AnimatePresence>
+      <div className="relative z-10 w-full h-full">
+        <AnimatePresence mode="wait">
+          {!hasError[current] ? (
+            <motion.img
+              key={`img-${current}`}
+              src={images[current]}
+              onLoad={() => handleImageLoad(current)}
+              onError={() => handleImageError(current)}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full h-full object-cover select-none"
+              alt={`Visualização do produto ${current + 1}`}
+            />
+          ) : (
+            <motion.div 
+              key={`error-${current}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="w-full h-full flex flex-col items-center justify-center text-gray-400 bg-zinc-800"
+            >
+               <ImageOff size={40} className="mb-4 opacity-50" />
+               <p className="text-[10px] font-black uppercase tracking-widest">Preview Indisponível</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
       
       {images.length > 1 && (
         <>
-          <div className="absolute inset-0 pointer-events-none z-20 group-hover:bg-black/5 transition-colors duration-500" />
-          
+          {/* Navegação Estilizada (Aparece no Hover) */}
           <button 
-            onClick={prev} 
-            className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/90 backdrop-blur-xl p-4 rounded-full text-white hover:text-gray-900 transition-all opacity-0 group-hover:opacity-100 shadow-xl border border-white/20 active:scale-90 z-30"
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-blue-600 backdrop-blur-xl p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100 shadow-xl border border-white/10 active:scale-90 z-30"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
           
           <button 
-            onClick={next} 
-            className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/90 backdrop-blur-xl p-4 rounded-full text-white hover:text-gray-900 transition-all opacity-0 group-hover:opacity-100 shadow-xl border border-white/20 active:scale-90 z-30"
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-blue-600 backdrop-blur-xl p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100 shadow-xl border border-white/10 active:scale-90 z-30"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
           
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30 px-4 py-2 bg-black/10 backdrop-blur-md rounded-full border border-white/10">
+          {/* Indicadores de Progresso Minimalistas */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30 px-3 py-2 bg-black/30 backdrop-blur-lg rounded-full border border-white/10">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'}`} 
+                className={`h-1 rounded-full transition-all duration-500 ${i === current ? 'w-6 bg-blue-500' : 'w-1.5 bg-white/30'}`} 
               />
             ))}
           </div>
         </>
       )}
+
+      {/* Overlay de Proteção Visual */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none z-10" />
     </div>
   );
 };

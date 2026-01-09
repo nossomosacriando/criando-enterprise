@@ -54,12 +54,12 @@ const App = () => {
         </motion.main>
       </AnimatePresence>
 
-      {(currentPage === 'home' || currentPage === 'produtos') && (
-        <Footer onNavigate={handlePageChange} />
+      {(currentPage === 'home' || currentPage === 'produtos' || currentPage === 'quem-somos') && (
+        <Footer onNavigate={handlePageChange} onOpenContact={() => setIsContactModalOpen(true)} />
       )}
       
-      {/* Small footer for other pages */}
-      {currentPage !== 'home' && currentPage !== 'produtos' && (
+      {/* Small footer for other pages (Policy pages) */}
+      {currentPage !== 'home' && currentPage !== 'produtos' && currentPage !== 'quem-somos' && (
          <footer className="bg-[#0a0a0a] py-10 text-center border-t border-white/10">
             <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Criando Enterprise. Todos os direitos reservados.</p>
          </footer>

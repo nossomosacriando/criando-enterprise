@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, ArrowRight, Terminal } from 'lucide-react';
+import { Monitor, ArrowRight, Layers, Cpu } from 'lucide-react';
 import { Page } from '../types';
 import { ASSETS } from '../assets/index';
 
@@ -14,61 +14,69 @@ export const HomeFeature = ({ onNavigate, onOpenContact }: HomeFeatureProps) => 
   return (
     <div className="bg-[#050505] text-white selection:bg-blue-600">
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" role="banner">
+        {/* Background Layer with gradients as fallback */}
         <div 
-          className="absolute inset-0 z-0 opacity-[0.25] bg-cover bg-center bg-no-repeat" 
+          className="absolute inset-0 z-0 opacity-[0.15] scale-110 blur-sm bg-cover bg-center bg-no-repeat bg-[#0a0a0a]" 
           style={{ 
-            backgroundImage: `url(${ASSETS.layout.backgrounds.home})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.8), transparent), url("${ASSETS.layout.backgrounds.home}")`,
+            backgroundColor: '#050505'
           }}
         ></div>
 
         <div 
-          className="absolute inset-0 z-[1] opacity-[0.1]" 
+          className="absolute inset-0 z-[1] opacity-[0.05]" 
           style={{ 
             backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', 
-            backgroundSize: '32px 32px' 
+            backgroundSize: '48px 48px' 
           }}
         ></div>
         
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none z-[2]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none z-[2]"></div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
           >
-            <div className="flex flex-col items-center mb-12">
-              <span className="inline-block px-5 py-1.5 rounded-full border border-white/5 bg-white/5 text-blue-500 text-[10px] font-black tracking-[0.6em] uppercase mb-16">
-                Engineering & Design Studio
-              </span>
+            <div className="flex flex-col items-center">
+              <motion.span 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-block px-6 py-2 rounded-full border border-white/10 bg-white/5 text-blue-400 text-[10px] font-black tracking-[0.5em] uppercase mb-12 backdrop-blur-md"
+              >
+                High-End Software Engineering
+              </motion.span>
               
-              <h1 className="text-7xl md:text-[13rem] font-black leading-none tracking-tighter mb-6 select-none text-white drop-shadow-2xl">
+              <h1 className="text-6xl md:text-[11rem] font-black leading-[0.85] tracking-tighter mb-8 select-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
                 CRIANDO
               </h1>
               
-              <p className="text-sm md:text-xl font-medium uppercase tracking-[0.9em] text-gray-500 mb-20 ml-[0.9em]">
-                A Nova Era Digital
+              <p className="text-xs md:text-lg font-bold uppercase tracking-[1.2em] text-blue-500/80 mb-16 ml-[1.2em]">
+                ENTERPRISE SOLUTIONS
               </p>
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-16">
-              <p className="text-lg md:text-2xl text-gray-300 font-light leading-relaxed">
-                Desenvolvemos arquiteturas de software sólidas e interfaces funcionais. 
-                Nossa especialidade é traduzir necessidades de negócio em ferramentas tecnológicas escaláveis e intuitivas.
+            <div className="max-w-4xl mx-auto space-y-12">
+              <p className="text-xl md:text-3xl text-gray-300 font-light leading-snug tracking-tight">
+                Arquitetamos ecossistemas digitais que transcendem dispositivos. 
+                Sua visão, nossa engenharia de precisão.
               </p>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
                 <button 
                   onClick={() => onNavigate('produtos')}
-                  className="group px-14 py-6 bg-white text-black rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-500 flex items-center gap-4"
+                  className="group relative px-12 py-5 bg-white text-black rounded-full font-black text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-500 flex items-center gap-3 overflow-hidden shadow-2xl shadow-white/5"
                 >
-                  Ver Portfolio <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <span className="relative z-10">Explorar Portfolio</span>
+                  <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={onOpenContact}
-                  className="px-14 py-6 bg-transparent border border-white/10 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/5 hover:border-white/30 transition-all"
+                  className="px-12 py-5 bg-white/5 border border-white/10 text-white rounded-full font-black text-xs uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-sm"
                 >
-                  Falar com um Consultor
+                  Consultoria Técnica
                 </button>
               </div>
             </div>
@@ -76,61 +84,60 @@ export const HomeFeature = ({ onNavigate, onOpenContact }: HomeFeatureProps) => 
         </div>
       </section>
 
-      <section className="py-48 bg-white text-black overflow-hidden" aria-labelledby="tech-title">
+      {/* Solutions Matrix Section */}
+      <section className="py-48 bg-white text-black" aria-labelledby="tech-title">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-32">
-            <div className="lg:col-span-8">
-              <p className="text-blue-700 font-black uppercase tracking-[0.4em] text-[11px] mb-6">Expertise Técnica</p>
-              <h2 id="tech-title" className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-gray-900">
-                Soluções para o <br/> 
-                <span className="text-blue-600">
-                  Mundo Real.
-                </span>
-              </h2>
-            </div>
-            <div className="lg:col-span-4 lg:pl-12">
-              <p className="text-gray-500 text-xl font-medium leading-relaxed">
-                Abordagem multiplataforma: criamos ecossistemas digitais que funcionam onde seu usuário está.
-              </p>
-            </div>
+          <div className="max-w-4xl mb-32">
+            <p className="text-blue-600 font-black uppercase tracking-[0.4em] text-[11px] mb-6">Omnichannel Strategy</p>
+            <h2 id="tech-title" className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-gray-900 mb-10">
+              Engenharia sem <br/> 
+              <span className="text-blue-600">Fronteiras Digitais.</span>
+            </h2>
+            <p className="text-gray-500 text-xl font-light leading-relaxed">
+              Não somos apenas uma agência mobile. Somos arquitetos de sistemas. Do backend escalável em nuvem à interface desktop de alta performance, garantimos que seu software seja impecável em qualquer tela.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="md:col-span-8 bg-gradient-to-br from-[#1a1a1a] via-[#0a0a0a] to-[#050505] rounded-[3rem] p-12 md:p-20 text-white flex flex-col justify-between group shadow-2xl shadow-black/20"
-            >
-              <div>
-                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-12 shadow-2xl shadow-blue-600/20">
-                  <Monitor size={32} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Monitor size={32} />,
+                title: "Web & Desktop",
+                desc: "Aplicações robustas para navegadores e sistemas OS nativos (Windows/macOS), focadas em produtividade corporativa.",
+                techs: ["React", "Next.js", "Electron"]
+              },
+              {
+                icon: <Cpu size={32} />,
+                title: "Core & Infra",
+                desc: "Arquitetura de microsserviços e APIs de ultra-baixa latência que sustentam ecossistemas complexos.",
+                techs: ["Node.js", "Rust", "AWS"]
+              },
+              {
+                icon: <Layers size={32} />,
+                title: "Multi-Interface",
+                desc: "Desenvolvimento híbrido e nativo que garante uma experiência fluida entre tablets, smartphones e wearables.",
+                techs: ["Flutter", "React Native"]
+              }
+            ].map((card, idx) => (
+              <motion.div 
+                key={idx}
+                whileHover={{ y: -10 }}
+                className="bg-gray-50 p-12 rounded-[3rem] border border-gray-100 flex flex-col h-full group transition-all hover:shadow-2xl hover:shadow-blue-600/5"
+              >
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-10 shadow-sm border border-gray-100 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
+                  {card.icon}
                 </div>
-                <h3 className="text-4xl font-black mb-6 tracking-tight">Sistemas Web & Desktop</h3>
-                <p className="text-gray-400 text-xl leading-relaxed max-w-lg font-light">
-                  Aplicações de alto desempenho otimizadas para navegadores e sistemas operacionais de mesa, garantindo produtividade e robustez.
+                <h3 className="text-2xl font-black mb-4 tracking-tight uppercase">{card.title}</h3>
+                <p className="text-gray-500 font-normal leading-relaxed mb-10 flex-grow">
+                  {card.desc}
                 </p>
-              </div>
-              <div className="mt-16 flex gap-4 flex-wrap">
-                {['React.js', 'Next.js', 'Typescript', 'Rust'].map(tech => (
-                  <span key={tech} className="px-5 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-200 transition-colors">{tech}</span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="md:col-span-4 bg-gradient-to-br from-white to-gray-50 rounded-[3rem] p-12 border border-gray-100 flex flex-col justify-between shadow-lg"
-            >
-              <div>
-                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100 mb-10">
-                  <Terminal className="text-blue-600" size={28} />
+                <div className="flex gap-2 flex-wrap">
+                  {card.techs.map(t => (
+                    <span key={t} className="text-[9px] font-black uppercase tracking-widest text-blue-600/50">{t}</span>
+                  ))}
                 </div>
-                <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter italic">Infraestrutura</h3>
-                <p className="text-gray-500 leading-relaxed font-medium">
-                  Backend escalável e APIs seguras que sustentam toda a lógica do seu negócio com estabilidade total.
-                </p>
-              </div>
-              <div className="w-full h-px bg-gray-200 mt-10"></div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

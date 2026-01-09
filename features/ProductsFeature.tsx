@@ -48,7 +48,6 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
               {/* Content Section */}
               <div className="w-full lg:w-1/2 space-y-12">
                 <div className="space-y-6">
-                  <span className="text-blue-600 font-black uppercase tracking-[0.4em] text-[10px]">Produto Criando</span>
                   <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 leading-tight">
                     {product.name}
                   </h2>
