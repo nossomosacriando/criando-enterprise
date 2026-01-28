@@ -39,15 +39,6 @@ export const Footer = ({ onNavigate, onOpenContact }: FooterProps) => {
             >
               Iniciar Projeto
             </button>
-            <a 
-              href="https://wa.me/5511999999999" // Substitua pelo seu número
-              target="_blank"
-              rel="noopener"
-              className="w-full md:w-auto px-12 py-6 bg-white/5 border border-white/10 text-white rounded-3xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-3"
-            >
-              <MessageCircle size={18} className="text-[#25D366]" />
-              WhatsApp
-            </a>
           </div>
 
           <div className="pt-8">
