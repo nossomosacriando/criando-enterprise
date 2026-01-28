@@ -1,37 +1,59 @@
 /**
- * Gestão de Assets via Cloudinary (Links Externos)
- * Isso elimina os erros de "Module not found" no ambiente do AI Studio.
+ * Gestão de Assets LOCAIS (Vite Friendly)
+ * Compatível com build + GitHub Pages
  */
 
-const CLOUD_NAME = 'dbd2ydqcy';
-const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+/* Layout */
+import logo from '../assets/layout/logo/logo.png';
+import homeBg from '../assets/layout/backgrounds/home.png';
+import aboutBg from '../assets/layout/backgrounds/about.png';
+
+/* Products - O Leitor */
+import oLeitor1 from '../assets/products/o-leitor/o-leitor-1.png';
+import oLeitor2 from '../assets/products/o-leitor/o-leitor-2.png';
+import oLeitor3 from '../assets/products/o-leitor/o-leitor-3.png';
+import oLeitor4 from '../assets/products/o-leitor/o-leitor-4.png';
+import oLeitor5 from '../assets/products/o-leitor/o-leitor-5.png';
+import oLeitor6 from '../assets/products/o-leitor/o-leitor-6.png';
+import oLeitor7 from '../assets/products/o-leitor/o-leitor-7.png';
+
+/* Products - Harvest Words */
+import harvest1 from '../assets/products/harvest-words/harvest-1.png';
+import harvest2 from '../assets/products/harvest-words/harvest-2.png';
+import harvest3 from '../assets/products/harvest-words/harvest-3.png';
+import harvest4 from '../assets/products/harvest-words/harvest-4.png';
+import harvest5 from '../assets/products/harvest-words/harvest-5.png';
+import harvest6 from '../assets/products/harvest-words/harvest-6.png';
+import harvest7 from '../assets/products/harvest-words/harvest-7.png';
 
 export const ASSETS = {
   layout: {
-    logo: `${BASE_URL}/v1/logo-criando_id.png`,
+    logo,
     backgrounds: {
-      about: `${BASE_URL}/v1/about_id.png`,
-      home: `${BASE_URL}/v1/home_id.png`,
+      home: homeBg,
+      about: aboutBg,
     },
   },
+
   products: {
     oLeitor: [
-      `${BASE_URL}/v1/o-leitor-1_id.png`,
-      `${BASE_URL}/v1/o-leitor-2_id.png`,
-      `${BASE_URL}/v1/o-leitor-3_id.png`,
-      `${BASE_URL}/v1/o-leitor-4_id.png`,
-      `${BASE_URL}/v1/o-leitor-5_id.png`,
-      `${BASE_URL}/v1/o-leitor-6_id.png`,
-
+      oLeitor1,
+      oLeitor2,
+      oLeitor3,
+      oLeitor4,
+      oLeitor5,
+      oLeitor6,
+      oLeitor7,
     ],
+
     harvestWords: [
-      `${BASE_URL}/v1/harvest-1_id.png`,
-      `${BASE_URL}/v1/harvest-2_id.png`,
-      `${BASE_URL}/v1/harvest-3_id.png`,
-      `${BASE_URL}/v1/harvest-4_id.png`,
-      `${BASE_URL}/v1/harvest-5_id.png`,
-      `${BASE_URL}/v1/harvest-6_id.png`,
-      `${BASE_URL}/v1/harvest-7_id.png`,
+      harvest1,
+      harvest2,
+      harvest3,
+      harvest4,
+      harvest5,
+      harvest6,
+      harvest7,
     ],
   },
 };
