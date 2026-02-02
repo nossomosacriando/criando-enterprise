@@ -15,7 +15,7 @@ export const PRODUCTS: Product[] = [
     description: 'Cansado de perder suas leituras ou de um milhão de abas abertas? O Leitor é o agregador perfeito para fãs de histórias em quadrinhos, novels e mangás. Agrupe todos os seus links em um único local e desfrute de uma experiência de leitura otimizada!',
     images: ASSETS.products.oLeitor,
     playStore: 'https://play.google.com/store/apps/details?id=com.criando.oleitor&hl=pt_BR',
-    policyPage: 'politica-leitor'
+    policyPage: 'politica-o-leitor'
   },
   {
     id: 'harvest-word',
@@ -25,6 +25,6 @@ export const PRODUCTS: Product[] = [
     appStore: 'https://apps.apple.com/br/app/harvest-words-ingl%C3%AAs-jogando/id6755827485',
     playStore: 'https://play.google.com/store/apps/details?id=com.nomerge.englishappgame',
     coCreatorLink: 'https://inativestudio.com',
-    policyPage: 'politica-harvest'
+    policyPage: 'politica-harvest-words'
   }
 ];
