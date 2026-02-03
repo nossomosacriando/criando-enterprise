@@ -36,7 +36,7 @@
     rel="stylesheet"
   />
 
-  <!-- Tailwind -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Global styles -->
@@ -51,73 +51,17 @@
     }
   </style>
 
-  <!-- Import maps -->
-
-
-  <!-- SPA ROUTING + 404 HANDLER -->
+  <!-- SPA ROUTE RESTORE (GitHub Pages) -->
   <script>
-    const VALID_ROUTES = [
-      '/',
-      '/quem-somos',
-      '/produtos',
-      '/politicas/o-leitor',
-      '/politicas/harvest-words'
-    ];
-
-    const path = window.location.pathname;
-
-    // Restauração após fallback do 404.html
-    const restored = sessionStorage.getItem('spa-redirect');
-    if (restored) {
-      sessionStorage.removeItem('spa-redirect');
-      window.history.replaceState(null, '', restored);
-    }
-
-    // Detecta rota inválida real
-    if (
-      path !== '/' &&
-      !VALID_ROUTES.includes(path)
-    ) {
-      document.addEventListener('DOMContentLoaded', () => {
-        document.body.innerHTML = `
-          <main class="min-h-screen bg-[#050505] text-white flex items-center justify-center px-6">
-            <div class="max-w-xl text-center space-y-8">
-              <p class="text-xs font-black tracking-[0.5em] uppercase text-blue-500">
-                Criando Enterprise
-              </p>
-
-              <h1 class="text-6xl font-black tracking-tighter">
-                404
-              </h1>
-
-              <p class="text-xl text-gray-400">
-                A página que você tentou acessar não existe ou foi movida.
-              </p>
-
-              <a
-                href="/"
-                class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-blue-600 text-white font-black uppercase tracking-widest text-xs hover:bg-blue-500 transition"
-              >
-                Voltar para Home
-              </a>
-            </div>
-          </main>
-        `;
-      });
-    }
+    (function () {
+      const restored = sessionStorage.getItem('spa-redirect');
+      if (restored) {
+        sessionStorage.removeItem('spa-redirect');
+        history.replaceState(null, '', restored);
+      }
+    })();
   </script>
-  <script type="importmap">
-  {
-    "imports": {
-      "react": "https://esm.sh/react@^19.2.3",
-      "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-      "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-      "framer-motion": "https://esm.sh/framer-motion@^12.24.12",
-      "react/": "https://esm.sh/react@^19.2.3/"
-    }
-  }
-  </script>
-  <script type="module" crossorigin src="/assets/index-D2Pq6bAH.js"></script>
+  <script type="module" crossorigin src="/assets/index-DxpoyiZm.js"></script>
 </head>
 
 <body class="antialiased">

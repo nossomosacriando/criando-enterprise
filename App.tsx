@@ -13,6 +13,8 @@ import { ProductsFeature } from './features/ProductsFeature';
 import { PolicyOLeitor } from './features/policy/pages/PolicyOLeitor';
 import { PolicyHarvestWords } from './features/policy/pages/PolicyHarvestWords';
 
+import { NotFoundFeature } from './features/NotFoundFeature';
+
 import { Page, PAGE_ROUTES } from './types';
 
 /**
@@ -30,6 +32,7 @@ const ROUTE_TO_PAGE = Object.entries(PAGE_ROUTES).reduce(
 export const App = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isValidRoute, setIsValidRoute] = useState(true);
 
   /**
    * Sincroniza URL inicial (deep link / refresh)
@@ -40,6 +43,9 @@ export const App = () => {
 
     if (resolvedPage) {
       setCurrentPage(resolvedPage);
+      setIsValidRoute(true);
+    } else {
+      setIsValidRoute(false);
     }
   }, []);
 
@@ -48,6 +54,7 @@ export const App = () => {
    */
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
+    setIsValidRoute(true);
     window.history.pushState({}, '', PAGE_ROUTES[page]);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -56,6 +63,10 @@ export const App = () => {
    * Renderização por Page
    */
   const renderContent = () => {
+    if (!isValidRoute) {
+      return <NotFoundFeature onBackHome={() => handlePageChange('home')} />;
+    }
+
     switch (currentPage) {
       case 'home':
         return (
@@ -78,19 +89,15 @@ export const App = () => {
         return <PolicyHarvestWords onBack={() => handlePageChange('produtos')} />;
 
       default:
-        return (
-          <HomeFeature
-            onNavigate={handlePageChange}
-            onOpenContact={() => setIsContactModalOpen(true)}
-          />
-        );
+        return null;
     }
   };
 
   const isMainPage =
-    currentPage === 'home' ||
-    currentPage === 'produtos' ||
-    currentPage === 'quem-somos';
+    isValidRoute &&
+    (currentPage === 'home' ||
+      currentPage === 'produtos' ||
+      currentPage === 'quem-somos');
 
   return (
     <div className="min-h-screen bg-white selection:bg-blue-600 selection:text-white">
@@ -98,7 +105,7 @@ export const App = () => {
 
       <AnimatePresence mode="wait">
         <motion.main
-          key={currentPage}
+          key={isValidRoute ? currentPage : '404'}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
@@ -115,7 +122,7 @@ export const App = () => {
         />
       )}
 
-      {!isMainPage && (
+      {!isMainPage && isValidRoute && (
         <footer className="bg-[#0a0a0a] py-10 text-center border-t border-white/10">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Criando Enterprise. Todos os direitos reservados.
