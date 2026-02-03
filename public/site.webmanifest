@@ -1,0 +1,21 @@
+{
+  "name": "Criando-Enterprise",
+  "short_name": "Criando",
+  "icons": [
+    {
+      "src": "/Criando-Enterprise/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Criando-Enterprise/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#d5dcf7",
+  "background_color": "#d5dcf7",
+  "display": "standalone"
+}
