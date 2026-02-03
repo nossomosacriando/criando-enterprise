@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(() => {
   return {
-    // Base obrigatória para GitHub Pages
+    // Domínio customizado (GitHub Pages + CNAME)
     base: '/',
 
     server: {

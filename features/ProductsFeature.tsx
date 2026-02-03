@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import {
   Download,
@@ -10,12 +10,28 @@ import {
 import { Carousel } from '../components/Carousel';
 import { PRODUCTS } from '../constants';
 import { Page } from '../types';
+import { useImagePreload } from '../hooks/useImagePreload';
 
 interface ProductsFeatureProps {
   onNavigate: (page: Page) => void;
 }
 
 export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
+  /**
+   * 🔹 Junta todas as imagens de todos os produtos
+   * 🔹 useMemo evita recriação desnecessária
+   */
+  const allProductImages = useMemo(
+    () => PRODUCTS.flatMap(product => product.images),
+    []
+  );
+
+  /**
+   * 🔹 Pré-carrega todas as imagens assim que a feature monta
+   * 🔹 Browser mantém em cache/memória
+   */
+  useImagePreload(allProductImages);
+
   return (
     <section
       className="py-40 bg-gray-50 min-h-screen"
@@ -87,12 +103,8 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
                       <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-blue-600 transition-all duration-500 group-hover/btn:rotate-[360deg]">
-                        <Download
-                          size={26}
-                          className="text-white group-hover/btn:scale-110 transition-transform"
-                        />
+                        <Download size={26} />
                       </div>
-
                       <div className="text-left leading-tight">
                         <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">
                           Disponível no
@@ -112,12 +124,8 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
                       <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-blue-500 transition-all duration-500 group-hover/btn:rotate-[360deg]">
-                        <Download
-                          size={26}
-                          className="text-white group-hover/btn:scale-110 transition-transform"
-                        />
+                        <Download size={26} />
                       </div>
-
                       <div className="text-left leading-tight">
                         <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">
                           Disponível na
@@ -137,12 +145,8 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                       className="group/btn w-full sm:w-auto sm:min-w-[240px] px-8 py-5 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black text-white border border-white/10 rounded-3xl font-bold flex items-center gap-5 hover:shadow-2xl hover:shadow-gray-900/40 hover:-translate-y-1 transition-all duration-500 active:scale-95 shadow-xl"
                     >
                       <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover/btn:bg-gray-600 transition-all duration-500 group-hover/btn:rotate-[360deg]">
-                        <ExternalLink
-                          size={26}
-                          className="text-white group-hover/btn:scale-110 transition-transform"
-                        />
+                        <ExternalLink size={26} />
                       </div>
-
                       <div className="text-left leading-tight">
                         <p className="text-[9px] uppercase opacity-50 font-black tracking-[0.2em] mb-1">
                           Estúdio <br /> Co-Fundador
@@ -155,22 +159,16 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
                   )}
                 </div>
 
-                {/* Secondary Action — INTERNAL NAVIGATION */}
+                {/* Secondary Action */}
                 <button
                   onClick={() => onNavigate(product.policyPage)}
                   className="flex items-center gap-4 text-gray-400 font-black uppercase text-[10px] tracking-[0.4em] hover:text-blue-600 transition-all group/policy"
                 >
-                  <ShieldCheck
-                    size={18}
-                    className="group-hover/policy:rotate-12 transition-transform"
-                  />
+                  <ShieldCheck size={18} />
                   <span className="border-b border-transparent group-hover/policy:border-blue-600/30 pb-1">
                     Política de Privacidade
                   </span>
-                  <ChevronRight
-                    size={14}
-                    className="opacity-0 -translate-x-2 group-hover/policy:opacity-100 group-hover/policy:translate-x-0 transition-all"
-                  />
+                  <ChevronRight size={14} />
                 </button>
               </div>
             </motion.article>

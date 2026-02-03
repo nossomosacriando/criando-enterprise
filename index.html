@@ -18,7 +18,7 @@
   <meta name="author" content="Criando Enterprise" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Canonical (use o domínio final correto) -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://www.criando.co/" />
 
   <!-- Favicons / PWA -->
@@ -36,7 +36,7 @@
     rel="stylesheet"
   />
 
-  <!-- Tailwind CDN (ok para landing / institucional) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Global styles -->
@@ -49,22 +49,9 @@
       background: #2563eb;
       color: white;
     }
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
   </style>
 
-  <!-- Import maps (mantido como você definiu) -->
+  <!-- Import maps -->
   <script type="importmap">
   {
     "imports": {
@@ -76,10 +63,65 @@
     }
   }
   </script>
+
+  <!-- SPA ROUTING + 404 HANDLER -->
+  <script>
+    const VALID_ROUTES = [
+      '/',
+      '/quem-somos',
+      '/produtos',
+      '/politicas/o-leitor',
+      '/politicas/harvest-words'
+    ];
+
+    const path = window.location.pathname;
+
+    // Restauração após fallback do 404.html
+    const restored = sessionStorage.getItem('spa-redirect');
+    if (restored) {
+      sessionStorage.removeItem('spa-redirect');
+      window.history.replaceState(null, '', restored);
+    }
+
+    // Detecta rota inválida real
+    if (
+      path !== '/' &&
+      !VALID_ROUTES.includes(path)
+    ) {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.innerHTML = `
+          <main class="min-h-screen bg-[#050505] text-white flex items-center justify-center px-6">
+            <div class="max-w-xl text-center space-y-8">
+              <p class="text-xs font-black tracking-[0.5em] uppercase text-blue-500">
+                Criando Enterprise
+              </p>
+
+              <h1 class="text-6xl font-black tracking-tighter">
+                404
+              </h1>
+
+              <p class="text-xl text-gray-400">
+                A página que você tentou acessar não existe ou foi movida.
+              </p>
+
+              <a
+                href="/"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-blue-600 text-white font-black uppercase tracking-widest text-xs hover:bg-blue-500 transition"
+              >
+                Voltar para Home
+              </a>
+            </div>
+          </main>
+        `;
+      });
+    }
+  </script>
 </head>
 
 <body class="antialiased">
   <div id="root"></div>
+
+  <!-- React App -->
   <script type="module" src="./index.tsx"></script>
 </body>
 </html>
