@@ -1,129 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Política de Privacidade – O Leitor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Política de Privacidade – O Leitor | Criando Enterprise</title>
 
-  <style>
-    /* ===== ESCOPO TOTAL DA POLÍTICA ===== */
-    .policy-page {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #ffffff;
-      color: #0f172a;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
 
-    /* Header isolado */
-    .policy-header {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-    .policy-header a img {
-      height: 42px;
-    }
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --accent: #2563eb;
+        --border: #e5e7eb;
+        --dark: #050505;
+      }
 
-    .policy-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-      margin-bottom: 24px;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    h1 {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
+        line-height: 1.65;
+      }
 
-    h1 span {
-      color: #2563eb;
-    }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
 
-    h2 {
-      margin-top: 48px;
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #1e3a8a;
-    }
+      /* ---------- HEADER ---------- */
 
-    p {
-      margin-top: 16px;
-      line-height: 1.7;
-      color: #334155;
-    }
+      header {
+        background: var(--dark);
+        padding: 24px 16px;
+        display: flex;
+        justify-content: center;
+      }
 
-    ul {
-      margin-top: 16px;
-      padding-left: 20px;
-    }
+      header img {
+        height: 42px;
+      }
 
-    li {
-      margin-bottom: 8px;
-    }
+      /* ---------- MAIN ---------- */
 
-    .policy-footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 14px;
-      color: #64748b;
-    }
-  </style>
-</head>
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 64px 24px 80px;
+      }
 
-<body>
-  <main class="policy-page">
+      .back-link {
+        display: inline-block;
+        margin-bottom: 40px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
 
-    <header class="policy-header">
-      <a href="https://criando.co" target="_blank" rel="noopener">
-        <img src="/assets/layout/logo/logo.png" alt="Criando Enterprise" />
+      h1 {
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+
+      h1 span {
+        color: var(--accent);
+      }
+
+      section {
+        margin-bottom: 56px;
+      }
+
+      h2 {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      h2::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      p {
+        color: var(--text-secondary);
+        max-width: 720px;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        margin-top: 16px;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      /* ---------- FOOTER ---------- */
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 32px 16px;
+        text-align: center;
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="https://criando.co" aria-label="Criando Enterprise">
+        <img src="/logo.png" alt="Criando Enterprise" />
       </a>
     </header>
 
-    <a class="policy-back" href="https://criando.co">
-      ← Conhecer a Criando
-    </a>
+    <!-- MAIN -->
+    <main>
+      <a href="https://criando.co" class="back-link">
+        ← Conhecer a Criando
+      </a>
 
-    <h1>Política de Privacidade <span>O Leitor</span></h1>
+      <h1>
+        Política de Privacidade<br />
+        <span>O Leitor</span>
+      </h1>
 
-    <h2>Termos Gerais</h2>
-    <p>
-      A plataforma “O Leitor” oferece um aplicativo com suporte de anúncios.
-      Este serviço é fornecido pela Criando Enterprise sem custos e destina-se
-      a ser utilizado como está.
-    </p>
+      <section>
+        <h2>Termos Gerais</h2>
 
-    <h2>Coleta e Uso de Informações</h2>
-    <p>
-      Para proporcionar uma melhor experiência, podemos solicitar determinadas
-      informações pessoais.
-    </p>
+        <p>
+          A plataforma <strong>O Leitor</strong> oferece um aplicativo com
+          suporte a anúncios. Este serviço é fornecido pela
+          <strong>Criando Enterprise</strong> sem custos.
+        </p>
 
-    <ul>
-      <li>Google Play Services</li>
-      <li>AdMob</li>
-    </ul>
+        <p>
+          Esta página tem o propósito de informar os usuários sobre nossas
+          políticas relacionadas à coleta, uso e divulgação de informações
+          pessoais.
+        </p>
 
-    <h2>Cookies e Segurança</h2>
-    <p>
-      Este serviço não utiliza cookies explicitamente e adota medidas
-      comercialmente aceitáveis para proteger as informações.
-    </p>
+        <p>
+          Ao utilizar nosso serviço, você concorda com esta Política de
+          Privacidade.
+        </p>
+      </section>
 
-    <footer class="policy-footer">
-      Última atualização: 11 de fevereiro de 2023
+      <section>
+        <h2>Coleta e Uso de Informações</h2>
+
+        <p>
+          Para proporcionar uma melhor experiência, podemos solicitar
+          determinadas informações pessoais.
+        </p>
+
+        <ul>
+          <li>Google Play Services</li>
+          <li>AdMob</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cookies e Segurança</h2>
+
+        <p>
+          Este serviço não utiliza cookies explicitamente e adota medidas
+          comercialmente aceitáveis para proteger as informações fornecidas.
+        </p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 Criando Enterprise · Última atualização: 11 de fevereiro de 2023
     </footer>
-
-  </main>
-</body>
+  </body>
 </html>

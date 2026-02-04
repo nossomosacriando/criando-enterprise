@@ -1,110 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Política de Privacidade – Harvest Words</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Política de Privacidade – Harvest Words: Inglês Jogando | Criando Enterprise
+    </title>
 
-  <style>
-    .policy-page {
-      font-family: Inter, system-ui, sans-serif;
-      background: #ffffff;
-      color: #0f172a;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
 
-    .policy-header {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
+    <meta
+      name="description"
+      content="Política de Privacidade do aplicativo Harvest Words: Inglês Jogando, desenvolvido pela Criando Enterprise."
+    />
 
-    .policy-header img {
-      height: 42px;
-    }
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-    .policy-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-      margin-bottom: 24px;
-    }
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --accent: #2563eb;
+        --border: #e5e7eb;
+        --dark: #050505;
+      }
 
-    h1 {
-      font-size: 36px;
-      font-weight: 800;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    h1 span {
-      color: #2563eb;
-    }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
+        line-height: 1.65;
+      }
 
-    h2 {
-      margin-top: 48px;
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #1e3a8a;
-    }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
 
-    p, li {
-      margin-top: 16px;
-      line-height: 1.7;
-      color: #334155;
-    }
+      /* ---------- HEADER ---------- */
 
-    footer {
-      margin-top: 64px;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 24px;
-      font-size: 14px;
-      color: #64748b;
-    }
-  </style>
-</head>
+      header {
+        background: var(--dark);
+        padding: 24px 16px;
+        display: flex;
+        justify-content: center;
+      }
 
-<body>
-  <main class="policy-page">
+      header img {
+        height: 42px;
+      }
 
-    <header class="policy-header">
-      <a href="https://criando.co" target="_blank" rel="noopener">
-        <img src="/assets/layout/logo/logo.png" alt="Criando Enterprise" />
+      /* ---------- MAIN ---------- */
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 64px 24px 80px;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 40px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+
+      h1 span {
+        color: var(--accent);
+      }
+
+      section {
+        margin-bottom: 56px;
+      }
+
+      h2 {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      h2::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      p {
+        color: var(--text-secondary);
+        max-width: 720px;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        margin-top: 16px;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      /* ---------- FOOTER ---------- */
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 32px 16px;
+        text-align: center;
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="https://criando.co" aria-label="Criando Enterprise">
+        <img src="/logo.png" alt="Criando Enterprise" />
       </a>
     </header>
 
-    <a class="policy-back" href="https://criando.co">
-      ← Conhecer a Criando
-    </a>
+    <!-- MAIN -->
+    <main>
+      <a href="https://criando.co" class="back-link">
+        ← Conhecer a Criando
+      </a>
 
-    <h1>Política de Privacidade <span>Harvest Words</span></h1>
+      <h1>
+        Política de Privacidade<br />
+        <span>Harvest Words: Inglês Jogando</span>
+      </h1>
 
-    <h2>Informações Coletadas</h2>
-    <ul>
-      <li>Microfone (RECORD_AUDIO) – apenas para reconhecimento de fala</li>
-      <li>Dados de terceiros (AdMob)</li>
-    </ul>
+      <section>
+        <p>
+          Obrigado por utilizar o
+          <strong>Harvest Words: Inglês Jogando</strong>. Esta Política de
+          Privacidade descreve como tratamos as informações associadas ao uso
+          deste aplicativo.
+        </p>
+      </section>
 
-    <h2>Uso das Informações</h2>
-    <ul>
-      <li>Reconhecimento de fala</li>
-      <li>Exibição de anúncios</li>
-    </ul>
+      <section>
+        <h2>Informações Coletadas</h2>
 
-    <h2>Segurança</h2>
-    <p>O aplicativo não armazena dados pessoais em servidores próprios.</p>
+        <ul>
+          <li>
+            <strong>Microfone (RECORD_AUDIO)</strong> — utilizado exclusivamente
+            para reconhecimento de fala. Nenhuma gravação é armazenada.
+          </li>
+          <li>
+            <strong>Dados de terceiros (AdMob)</strong> — o Google pode coletar
+            identificadores de dados de uso conforme suas próprias políticas.
+          </li>
+        </ul>
+      </section>
 
-    <h2>Crianças</h2>
-    <p>O aplicativo não coleta intencionalmente dados de crianças.</p>
+      <section>
+        <h2>Uso das Informações</h2>
 
+        <ul>
+          <li>Reconhecimento de fala</li>
+          <li>Exibição de anúncios</li>
+          <li>Nenhum dado é vendido</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Segurança</h2>
+
+        <p>
+          O aplicativo não armazena dados pessoais em servidores próprios.
+        </p>
+      </section>
+
+      <section>
+        <h2>Crianças</h2>
+
+        <p>
+          O aplicativo não coleta intencionalmente dados de crianças.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contato</h2>
+
+        <p>
+          Em caso de dúvidas, entre em contato pelo e-mail:
+          <br />
+          <a href="mailto:nossomosacriando@gmail.com">
+            nossomosacriando@gmail.com
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer>
-      Última atualização: 16 de novembro de 2025
+      © 2026 Criando Enterprise · Última atualização: 16 de novembro de 2025
     </footer>
-
-  </main>
-</body>
+  </body>
 </html>
