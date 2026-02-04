@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
 
+    <meta name="author" content="Criando Enterprise" />
+    <meta
+      name="description"
+      content="Política de Privacidade do aplicativo O Leitor, desenvolvido pela Criando Enterprise."
+    />
+
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,13 +53,40 @@
 
       header {
         background: var(--dark);
-        padding: 24px 16px;
-        display: flex;
-        justify-content: center;
+        padding: 20px 32px;
       }
 
-      header img {
-        height: 42px;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand-text strong {
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-text span {
+        color: #60a5fa;
+        font-size: 0.6rem;
+        letter-spacing: 0.32em;
+        margin-top: 4px;
       }
 
       /* ---------- MAIN ---------- */
@@ -61,12 +94,12 @@
       main {
         max-width: 960px;
         margin: 0 auto;
-        padding: 64px 24px 80px;
+        padding: 72px 24px 96px;
       }
 
       .back-link {
         display: inline-block;
-        margin-bottom: 40px;
+        margin-bottom: 48px;
         font-size: 12px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
@@ -76,8 +109,8 @@
       h1 {
         font-size: clamp(2.4rem, 4vw, 3.2rem);
         font-weight: 900;
+        margin-bottom: 56px;
         line-height: 1.15;
-        margin-bottom: 48px;
       }
 
       h1 span {
@@ -106,30 +139,30 @@
         background: var(--accent);
       }
 
-      p {
+      p,
+      li {
         color: var(--text-secondary);
         max-width: 720px;
-        margin-bottom: 16px;
       }
 
       ul {
-        margin-top: 16px;
         padding-left: 20px;
+        margin-top: 16px;
       }
 
       li {
         margin-bottom: 8px;
-        color: var(--text-secondary);
       }
 
       /* ---------- FOOTER ---------- */
 
       footer {
-        border-top: 1px solid var(--border);
-        padding: 32px 16px;
+        background: var(--dark);
+        color: #94a3b8;
         text-align: center;
+        padding: 32px 16px;
         font-size: 13px;
-        color: #64748b;
+        letter-spacing: 0.08em;
       }
     </style>
   </head>
@@ -137,8 +170,12 @@
   <body>
     <!-- HEADER -->
     <header>
-      <a href="https://criando.co" aria-label="Criando Enterprise">
+      <a href="https://criando.co" class="brand" aria-label="Criando Enterprise">
         <img src="/logo.png" alt="Criando Enterprise" />
+        <div class="brand-text">
+          <strong>CRIANDO</strong>
+          <span>ENTERPRISE</span>
+        </div>
       </a>
     </header>
 
@@ -155,11 +192,11 @@
 
       <section>
         <h2>Termos Gerais</h2>
-
         <p>
-          A plataforma <strong>O Leitor</strong> oferece um aplicativo com
-          suporte a anúncios. Este serviço é fornecido pela
-          <strong>Criando Enterprise</strong> sem custos.
+          A plataforma <strong>O Leitor</strong> oferece um aplicativo com suporte
+          a anúncios. Este serviço é fornecido pela
+          <strong>Criando Enterprise</strong> sem custos e destina-se a ser
+          utilizado como está.
         </p>
 
         <p>
@@ -169,17 +206,17 @@
         </p>
 
         <p>
-          Ao utilizar nosso serviço, você concorda com esta Política de
-          Privacidade.
+          Ao utilizar nosso serviço, você concorda com a coleta e o uso de
+          informações de acordo com esta Política de Privacidade.
         </p>
       </section>
 
       <section>
         <h2>Coleta e Uso de Informações</h2>
-
         <p>
           Para proporcionar uma melhor experiência, podemos solicitar
-          determinadas informações pessoais.
+          determinadas informações pessoais, incluindo nome e gênero literário
+          favorito.
         </p>
 
         <ul>
@@ -190,7 +227,6 @@
 
       <section>
         <h2>Cookies e Segurança</h2>
-
         <p>
           Este serviço não utiliza cookies explicitamente e adota medidas
           comercialmente aceitáveis para proteger as informações fornecidas.
@@ -198,9 +234,8 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-      © 2026 Criando Enterprise · Última atualização: 11 de fevereiro de 2023
+      © 2026 Criando Enterprise. Todos os direitos reservados.
     </footer>
   </body>
 </html>
