@@ -52,16 +52,17 @@
       /* ---------- HEADER ---------- */
 
       header {
-        background: var(--dark);
+        background: #050505;
         padding: 20px 32px;
+        display: flex;
+        justify-content: center; /* CENTRALIZA O BLOCO */
       }
 
       .brand {
         display: flex;
         align-items: center;
         gap: 14px;
-        max-width: 1200px;
-        margin: 0 auto;
+        text-align: left;
       }
 
       .brand img {
@@ -170,7 +171,11 @@
   <body>
     <!-- HEADER -->
     <header>
-      <a href="https://criando.co" class="brand" aria-label="Criando Enterprise">
+      <a
+        href="https://criando.co"
+        class="brand"
+        aria-label="Criando Enterprise"
+      >
         <img src="/logo.png" alt="Criando Enterprise" />
         <div class="brand-text">
           <strong>CRIANDO</strong>
@@ -181,9 +186,7 @@
 
     <!-- MAIN -->
     <main>
-      <a href="https://criando.co" class="back-link">
-        ← Conhecer a Criando
-      </a>
+      <a href="https://criando.co" class="back-link"> ← Conhecer a Criando </a>
 
       <h1>
         Política de Privacidade<br />
@@ -193,8 +196,8 @@
       <section>
         <h2>Termos Gerais</h2>
         <p>
-          A plataforma <strong>O Leitor</strong> oferece um aplicativo com suporte
-          a anúncios. Este serviço é fornecido pela
+          A plataforma <strong>O Leitor</strong> oferece um aplicativo com
+          suporte a anúncios. Este serviço é fornecido pela
           <strong>Criando Enterprise</strong> sem custos e destina-se a ser
           utilizado como está.
         </p>
@@ -234,8 +237,6 @@
       </section>
     </main>
 
-    <footer>
-      © 2026 Criando Enterprise. Todos os direitos reservados.
-    </footer>
+    <footer>© 2026 Criando Enterprise. Todos os direitos reservados.</footer>
   </body>
 </html>
