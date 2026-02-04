@@ -50,13 +50,24 @@ export const App = () => {
   }, []);
 
   /**
+   * Reset de scroll a cada troca de página
+   * Comportamento global e previsível
+   */
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto',
+    });
+  }, [currentPage]);
+
+  /**
    * Navegação semântica centralizada
    */
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
     setIsValidRoute(true);
     window.history.pushState({}, '', PAGE_ROUTES[page]);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   /**
