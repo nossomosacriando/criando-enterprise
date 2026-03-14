@@ -8,7 +8,8 @@ export type Page =
   | 'quem-somos'
   | 'produtos'
   | 'politica-o-leitor'
-  | 'politica-harvest-words';
+  | 'politica-harvest-words'
+  | 'app-ads';
 
 /**
  * Mapeamento único de rotas
@@ -20,6 +21,7 @@ export const PAGE_ROUTES: Record<Page, string> = {
   produtos: '/produtos',
   'politica-o-leitor': '/politicas/o-leitor',
   'politica-harvest-words': '/politicas/harvest-words',
+  'app-ads': '/app-ads.txt',
 };
 
 /**

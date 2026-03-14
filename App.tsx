@@ -99,6 +99,13 @@ export const App = () => {
       case 'politica-harvest-words':
         return <PolicyHarvestWords onBack={() => handlePageChange('produtos')} />;
 
+      case 'app-ads':
+        return (
+          <pre className="p-4 text-sm whitespace-pre-wrap font-mono text-black bg-white min-h-screen">
+            google.com, pub-7900095798564596, DIRECT, f08c47fec0942fa0
+          </pre>
+        );
+
       default:
         return null;
     }
@@ -110,9 +117,11 @@ export const App = () => {
       currentPage === 'produtos' ||
       currentPage === 'quem-somos');
 
+  const isRawPage = currentPage === 'app-ads';
+
   return (
     <div className="min-h-screen bg-white selection:bg-blue-600 selection:text-white">
-      <Navbar activePage={currentPage} onNavigate={handlePageChange} />
+      {!isRawPage && <Navbar activePage={currentPage} onNavigate={handlePageChange} />}
 
       <AnimatePresence mode="wait">
         <motion.main
@@ -126,14 +135,14 @@ export const App = () => {
         </motion.main>
       </AnimatePresence>
 
-      {isMainPage && (
+      {!isRawPage && isMainPage && (
         <Footer
           onNavigate={handlePageChange}
           onOpenContact={() => setIsContactModalOpen(true)}
         />
       )}
 
-      {!isMainPage && isValidRoute && (
+      {!isRawPage && !isMainPage && isValidRoute && (
         <footer className="bg-[#0a0a0a] py-10 text-center border-t border-white/10">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Criando Enterprise. Todos os direitos reservados.

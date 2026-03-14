@@ -12,6 +12,11 @@ export default defineConfig(() => {
       host: '0.0.0.0',
     },
 
+    build: {
+      outDir: 'docs',
+      emptyOutDir: true,
+    },
+
     plugins: [react()],
 
     // Nenhuma variável sensível exposta no frontend
