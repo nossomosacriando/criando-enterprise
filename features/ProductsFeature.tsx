@@ -8,22 +8,31 @@ import {
 } from 'lucide-react';
 
 import { Carousel } from '../components/Carousel';
-import { PRODUCTS } from '../constants';
+import { PRODUCTS, WIDE_SCREEN_QUERY } from '../constants';
 import { Page } from '../types';
 import { useImagePreload } from '../hooks/useImagePreload';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 interface ProductsFeatureProps {
   onNavigate: (page: Page) => void;
 }
 
 export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
+  const isWideScreen = useMediaQuery(WIDE_SCREEN_QUERY);
+
   /**
    * 🔹 Junta todas as imagens de todos os produtos
+   * 🔹 Apenas a orientação exibida no breakpoint atual
    * 🔹 useMemo evita recriação desnecessária
    */
   const allProductImages = useMemo(
-    () => PRODUCTS.flatMap(product => product.images),
-    []
+    () =>
+      PRODUCTS.flatMap(product =>
+        isWideScreen && product.wideImages?.length
+          ? product.wideImages
+          : product.images
+      ),
+    [isWideScreen]
   );
 
   /**
@@ -76,13 +85,14 @@ export const ProductsFeature = ({ onNavigate }: ProductsFeatureProps) => {
               } gap-16 lg:gap-24 items-center`}
             >
               {/* Carousel */}
-              <div className="w-full lg:w-1/2 relative">
+              {/* Banners em paisagem ganham mais largura no desktop */}
+              <div className={`w-full ${product.wideImages ? 'lg:w-7/12' : 'lg:w-1/2'} relative`}>
                 <div className="absolute -inset-4 bg-blue-600/5 rounded-[3rem] blur-2xl" />
-                <Carousel images={product.images} />
+                <Carousel images={product.images} wideImages={product.wideImages} />
               </div>
 
               {/* Content */}
-              <div className="w-full lg:w-1/2 space-y-12">
+              <div className={`w-full ${product.wideImages ? 'lg:w-5/12' : 'lg:w-1/2'} space-y-12`}>
                 <div className="space-y-6">
                   <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 leading-tight">
                     {product.name}

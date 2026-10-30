@@ -8,12 +8,16 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'produtos', label: 'Produtos' },
 ];
 
+/** Breakpoint lg do Tailwind: a partir dele o carrossel usa imagens em paisagem */
+export const WIDE_SCREEN_QUERY = '(min-width: 1024px)';
+
 export const PRODUCTS: Product[] = [
   {
     id: 'o-leitor',
     name: 'O Leitor - Mangá, novel e mais',
     description: 'Cansado de perder suas leituras ou de um milhão de abas abertas? O Leitor é o agregador perfeito para fãs de histórias em quadrinhos, novels e mangás. Agrupe todos os seus links em um único local e desfrute de uma experiência de leitura otimizada!',
-    images: ASSETS.products.oLeitor,
+    images: ASSETS.products.oLeitor.portrait,
+    wideImages: ASSETS.products.oLeitor.landscape,
     playStore: 'https://play.google.com/store/apps/details?id=com.criando.oleitor&hl=pt_BR',
     policyPage: 'politica-o-leitor'
   },

@@ -25,6 +25,23 @@ export const PAGE_ROUTES: Record<Page, string> = {
 };
 
 /**
+ * Imagem com múltiplas resoluções
+ * O navegador escolhe a melhor variação via srcset + sizes
+ */
+export interface ResponsiveImage {
+  /** Fallback para navegadores sem suporte a srcset */
+  src: string;
+
+  /** Variações no formato "url 720w, url 1080w" */
+  srcSet: string;
+
+  /** Largura exibida em cada breakpoint */
+  sizes: string;
+}
+
+export type ProductImage = string | ResponsiveImage;
+
+/**
  * Produto exibido na página de produtos
  */
 export interface Product {
@@ -37,8 +54,14 @@ export interface Product {
   /** Descrição curta exibida no site */
   description: string;
 
-  /** Imagens promocionais */
-  images: string[];
+  /** Imagens promocionais (retrato) */
+  images: ProductImage[];
+
+  /**
+   * Imagens promocionais em paisagem, exibidas em telas largas (lg+)
+   * Quando presentes, as imagens em retrato são exibidas sem corte
+   */
+  wideImages?: ProductImage[];
 
   /** Link opcional para Google Play */
   playStore?: string;
