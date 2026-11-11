@@ -8,6 +8,7 @@ import {
   ExternalLink,
   RefreshCw,
 } from 'lucide-react';
+import { OLEITOR_POLICY_SECTIONS } from './content/oleitor';
 
 interface PolicyFeatureProps {
   type: 'leitor' | 'harvest';
@@ -21,111 +22,29 @@ export const PolicyFeature = ({ type }: PolicyFeatureProps) => {
       {isLeitor ? (
         <>
           {/* ================= O LEITOR ================= */}
-
-          <section>
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
-              <span className="w-8 h-1 bg-blue-600 rounded-full" />
-              Termos Gerais
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              A plataforma <strong>“O Leitor”</strong> oferece um aplicativo com
-              suporte de anúncios. Este serviço é fornecido pela{' '}
-              <strong>Criando Enterprise</strong> sem custos e destina-se a ser
-              utilizado como está.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Esta página tem o propósito de informar os usuários sobre nossas
-              políticas relacionadas à coleta, uso e divulgação de informações
-              pessoais.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Ao utilizar nosso serviço, você concorda com a coleta e o uso de
-              informações de acordo com esta Política de Privacidade.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
-              <span className="w-8 h-1 bg-blue-600 rounded-full" />
-              Coleta e Uso de Informações
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Para proporcionar uma melhor experiência, podemos solicitar
-              determinadas informações pessoais, incluindo nome e gênero
-              literário favorito. Fornecedores de terceiros utilizados:
-            </p>
-
-            <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 mt-8">
-              <ul className="space-y-3 font-bold text-gray-700">
-                <li>• Google Play Services</li>
-                <li>• AdMob</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
-              <span className="w-8 h-1 bg-blue-600 rounded-full" />
-              Cookies e Segurança
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Este serviço não utiliza cookies explicitamente. Empregamos meios
-              comercialmente aceitáveis para proteger as informações fornecidas.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
-              <span className="w-8 h-1 bg-blue-600 rounded-full" />
-              Conteúdo do Explorar
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Os carrosséis do Explorar mostram obras coletadas automaticamente
-              de sites de terceiros. O O Leitor não hospeda essas obras: ao abrir
-              uma delas, você acessa o site de origem.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Aplicamos filtros para retirar dos carrosséis conteúdo adulto
-              (+18), ecchi ou sugestivo e romances de conteúdo sexual, usando
-              listas de termos, uma lista de obras bloqueadas, classificação de
-              bases públicas (como o AniList) e denúncias dos usuários. Os
-              filtros reduzem, mas não garantem a ausência total desse conteúdo.
-            </p>
-            <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 mt-8">
-              <h3 className="font-black flex items-center gap-3 mb-4">
-                <Shield className="text-blue-600" size={20} />
-                Denúncia de conteúdo impróprio
-              </h3>
-              <p className="text-gray-600">
-                Segure a capa da obra e toque em <strong>Denunciar</strong>. Ela
-                sai do seu Explorar na hora e é analisada; após denúncias de
-                usuários diferentes ou decisão da equipe, sai dos carrosséis de
-                todos. Para contar denúncias de pessoas diferentes, guardamos o
-                link e o título da obra e um identificador anônimo (resumo
-                criptográfico da conta ou do endereço IP), sem dados que
-                identifiquem você diretamente.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
-              <span className="w-8 h-1 bg-blue-600 rounded-full" />
-              Obras Adicionadas pelo Usuário
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Obras que você adiciona à sua galeria manualmente, por link ou pela
-              pesquisa, são escolha sua. O O Leitor não revisa, não filtra e não
-              endossa esse conteúdo.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Você é o único responsável pelo conteúdo que adiciona e acessa por
-              meio do aplicativo, incluindo respeitar a classificação etária, a
-              legislação aplicável e os termos e direitos autorais dos sites de
-              origem. Não utilize o O Leitor para acessar ou armazenar conteúdo
-              ilegal.
-            </p>
-          </section>
+          {/* Mesmo texto do app: content/oleitor.ts é gerado a partir dele */}
+          {OLEITOR_POLICY_SECTIONS.map((section) => (
+            <section key={section.title}>
+              <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
+                <span className="w-8 h-1 bg-blue-600 rounded-full" />
+                {section.title}
+              </h2>
+              {section.paragraphs?.map((paragraph, i) => (
+                <p key={i} className={`text-gray-700 leading-relaxed${i > 0 ? " mt-4" : ""}`}>
+                  {paragraph}
+                </p>
+              ))}
+              {section.items && (
+                <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 mt-8">
+                  <ul className="space-y-3 text-gray-700">
+                    {section.items.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </section>
+          ))}
         </>
       ) : (
         <>
