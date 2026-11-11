@@ -73,6 +73,59 @@ export const PolicyFeature = ({ type }: PolicyFeatureProps) => {
               comercialmente aceitáveis para proteger as informações fornecidas.
             </p>
           </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
+              <span className="w-8 h-1 bg-blue-600 rounded-full" />
+              Conteúdo do Explorar
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              Os carrosséis do Explorar mostram obras coletadas automaticamente
+              de sites de terceiros. O O Leitor não hospeda essas obras: ao abrir
+              uma delas, você acessa o site de origem.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              Aplicamos filtros para retirar dos carrosséis conteúdo adulto
+              (+18), ecchi ou sugestivo e romances de conteúdo sexual, usando
+              listas de termos, uma lista de obras bloqueadas, classificação de
+              bases públicas (como o AniList) e denúncias dos usuários. Os
+              filtros reduzem, mas não garantem a ausência total desse conteúdo.
+            </p>
+            <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 mt-8">
+              <h3 className="font-black flex items-center gap-3 mb-4">
+                <Shield className="text-blue-600" size={20} />
+                Denúncia de conteúdo impróprio
+              </h3>
+              <p className="text-gray-600">
+                Segure a capa da obra e toque em <strong>Denunciar</strong>. Ela
+                sai do seu Explorar na hora e é analisada; após denúncias de
+                usuários diferentes ou decisão da equipe, sai dos carrosséis de
+                todos. Para contar denúncias de pessoas diferentes, guardamos o
+                link e o título da obra e um identificador anônimo (resumo
+                criptográfico da conta ou do endereço IP), sem dados que
+                identifiquem você diretamente.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center gap-4">
+              <span className="w-8 h-1 bg-blue-600 rounded-full" />
+              Obras Adicionadas pelo Usuário
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              Obras que você adiciona à sua galeria manualmente, por link ou pela
+              pesquisa, são escolha sua. O O Leitor não revisa, não filtra e não
+              endossa esse conteúdo.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              Você é o único responsável pelo conteúdo que adiciona e acessa por
+              meio do aplicativo, incluindo respeitar a classificação etária, a
+              legislação aplicável e os termos e direitos autorais dos sites de
+              origem. Não utilize o O Leitor para acessar ou armazenar conteúdo
+              ilegal.
+            </p>
+          </section>
         </>
       ) : (
         <>
