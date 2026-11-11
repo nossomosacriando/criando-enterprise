@@ -1,3 +1,5 @@
+import { OLEITOR_POLICY_UPDATED_AT } from './content/oleitor';
+
 export type PolicyKey = 'o-leitor' | 'harvest-words';
 
 export interface PolicyConfig {
@@ -11,7 +13,7 @@ export const POLICY_REGISTRY: Record<PolicyKey, PolicyConfig> = {
   'o-leitor': {
     slug: 'o-leitor',
     productName: 'O Leitor',
-    lastUpdate: '11 de Novembro de 2026',
+    lastUpdate: OLEITOR_POLICY_UPDATED_AT,
     content: 'leitor',
   },
   'harvest-words': {
